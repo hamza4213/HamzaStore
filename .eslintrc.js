@@ -5,16 +5,16 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-native/all",
+    // `expo` must come after `standard` or its globals configuration will be overridden
     "expo",
+    // `jsx-runtime` must come after `expo` or it will be overridden
     "plugin:react/jsx-runtime",
     "prettier",
   ],
-  plugins: ["reactotron", "prettier", "import"],
+  plugins: ["reactotron", "prettier"],
   rules: {
-    // 🔹 Prettier
-    "prettier/prettier": ["error", { endOfLine: "auto" }],
-
-    // 🔹 TypeScript
+    "prettier/prettier": "error",
+    // typescript-eslint
     "@typescript-eslint/array-type": 0,
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/no-explicit-any": 0,
@@ -28,13 +28,13 @@ module.exports = {
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-require-imports": 0,
     "@typescript-eslint/no-empty-object-type": 0,
-
-    // 🔹 ESLint Core
+    // eslint
     "no-use-before-define": 0,
     "no-restricted-imports": [
       "error",
       {
         paths: [
+          // Prefer named exports from 'react' instead of importing `React`
           {
             name: "react",
             importNames: ["default"],
@@ -53,30 +53,28 @@ module.exports = {
         ],
       },
     ],
-
-    // 🔹 React / React Native
+    // react
     "react/prop-types": 0,
+    // react-native
     "react-native/no-raw-text": 0,
-
-    // 🔹 Reactotron
+    // reactotron
     "reactotron/no-tron-in-production": "error",
-
-    // 🔹 ESLint Standard Overrides
+    // eslint-config-standard overrides
     "comma-dangle": 0,
     "no-global-assign": 0,
     "quotes": 0,
     "space-before-function-paren": 0,
-
-    // 🔹 Import order (main fix)
+    // eslint-import
     "import/order": [
       "error",
       {
-        "alphabetize": { order: "asc", caseInsensitive: true },
+        "alphabetize": {
+          order: "asc",
+          caseInsensitive: true,
+        },
         "newlines-between": "always",
-        "groups": [
-          ["builtin", "external"],
-          ["internal", "parent", "sibling", "index"],
-        ],
+        "groups": [["builtin", "external"], "internal", "unknown", ["parent", "sibling"], "index"],
+        "distinctGroup": false,
         "pathGroups": [
           {
             pattern: "react",
@@ -95,27 +93,13 @@ module.exports = {
           },
           {
             pattern: "@/**",
-            group: "internal",
+            group: "unknown",
             position: "after",
           },
         ],
-        "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroupsExcludedImportTypes": ["react", "react-native", "expo", "expo-*"],
       },
     ],
-    "import/newline-after-import": "error",
-  },
-  settings: {
-    "import/resolver": {
-      node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-      },
-      alias: {
-        map: [["@", "./"]],
-        extensions: [".ts", ".js", ".jsx", ".tsx"],
-      },
-    },
-    "react": {
-      version: "detect",
-    },
+    "import/newline-after-import": 1,
   },
 }
