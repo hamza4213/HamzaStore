@@ -1,6 +1,6 @@
-import { useAxios } from "./axios-provider"
 import { useQuery } from "@tanstack/react-query"
 
+import { useAxios } from "../providers/axios-provider"
 import { Product } from "./useProducts"
 
 export const useProductDetail = (id: string | number) => {
