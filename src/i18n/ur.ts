@@ -3,6 +3,17 @@ const ur = {
     ok: "ٹھیک ہے!",
     cancel: "منسوخ کریں",
     back: "واپس جائیں",
+    changeLanguage: "زبان تبدیل کریں",
+    darkMode: "ڈارک موڈ",
+    theme: "تھیم",
+    reviews: "جائزے",
+    retry: "دوبارہ کوشش کریں",
+  },
+  routes: {
+    home: "ہوم",
+    settings: "ترتیبات",
+    productsList: "مصنوعات کی فہرست",
+    productDetails: "مصنوعات کی تفصیل",
   },
   welcomeScreen: {
     postscript:

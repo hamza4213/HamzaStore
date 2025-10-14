@@ -3,6 +3,17 @@ const en = {
     ok: "OK!",
     cancel: "Cancel",
     back: "Back",
+    changeLanguage: "Change language",
+    darkMode: "Dark Mode",
+    theme: "Theme",
+    reviews: "reviews",
+    retry: "Retry",
+  },
+  routes: {
+    home: "Home",
+    settings: "Settings",
+    productsList: "Products list",
+    productDetails: "Product Details",
   },
   welcomeScreen: {
     postscript:
