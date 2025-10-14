@@ -1,8 +1,11 @@
 import { Header } from "@/components/Header"
 import { Screen } from "@/components/Screen"
+import { Text } from "@/components/Text"
+import { Switch } from "@/components/Toggle/Switch"
 import { useAppTheme } from "@/theme/context"
+import { $styles } from "@/theme/styles"
 import { FC, useCallback } from "react"
-import { Button, ViewStyle } from "react-native"
+import { View } from "react-native"
 
 export const SettingsScreen: FC = function SettingsScreen() {
   const { themeContext, setThemeContextOverride } = useAppTheme()
@@ -13,15 +16,12 @@ export const SettingsScreen: FC = function SettingsScreen() {
   }, [themeContext, setThemeContextOverride])
 
   return (
-    <Screen preset="fixed" contentContainerStyle={$root}>
+    <Screen preset="fixed" style={$styles.root}>
       <Header titleTx="common:back" />
-      <Button title="Toggle Theme" onPress={toggleTheme} />
+      <View style={[$styles.row, $styles.spaceBetween]}>
+        <Text tx="common:ok" />
+        <Switch value={themeContext === "dark"} onPress={toggleTheme} />
+      </View>
     </Screen>
   )
-}
-
-const $root: ViewStyle = {
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center",
 }

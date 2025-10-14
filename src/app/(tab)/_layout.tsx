@@ -1,4 +1,5 @@
 import { useAppTheme } from "@/theme/context"
+import { spacing } from "@/theme/spacing"
 import { Ionicons } from "@expo/vector-icons"
 import { Tabs } from "expo-router"
 
@@ -17,7 +18,7 @@ export default function TabsLayout() {
         },
         tabBarLabelStyle: {
           fontFamily: theme.typography.primary.medium,
-          fontSize: 12,
+          fontSize: spacing.sm,
         },
       }}
     >
