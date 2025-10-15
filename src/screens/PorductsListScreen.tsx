@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header"
+import { Loading } from "@/components/Loading"
 import { ProductCard } from "@/components/ProductCard"
 import { Screen } from "@/components/Screen"
 import { useProducts } from "@/services/api/hooks/useProducts"
@@ -13,6 +14,10 @@ export const PorductsListScreen: FC = function PorductsListScreen() {
   useEffect(() => {
     loadFavorites()
   }, [])
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <Screen preset="fixed" style={$styles.root}>
       <Header titleTx="routes:home" />
