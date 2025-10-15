@@ -18,6 +18,10 @@ const en = {
   productDetails: {
     addtoCart: "Add to cart",
     checkOut: "Check out now",
+    removedFromFav: "Removed from favorites!",
+    addedToFav: "Added to favorites!",
+    checkedOut: "Order placed!",
+    addedToCard: "Added to cart!",
   },
   welcomeScreen: {
     postscript:

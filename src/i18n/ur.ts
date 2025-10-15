@@ -14,6 +14,10 @@ const ur = {
     settings: "ترتیبات",
     productsList: "مصنوعات کی فہرست",
     productDetails: "مصنوعات کی تفصیل",
+    removedFromFav: "پسندیدہ سے ہٹا دیا گیا!",
+    addedToFav: "پسندیدہ میں شامل کر دیا گیا!",
+    checkedOut: "آرڈر دے دیا گیا!",
+    addedToCard: "کارٹ میں شامل کر دیا گیا!",
   },
   productDetails: {
     addtoCart: "کارٹ میں شامل کریں",
