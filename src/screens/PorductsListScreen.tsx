@@ -1,31 +1,31 @@
-import { Button } from "@/components/Button"
+import { Header } from "@/components/Header"
+import { ProductCard } from "@/components/ProductCard"
 import { Screen } from "@/components/Screen"
-import { Text } from "@/components/Text"
-import { useAppTheme } from "@/theme/context"
+import { useProducts } from "@/services/api/hooks/useProducts"
+import { useFavoritesStore } from "@/services/store/useFavoritesStore"
 import { $styles } from "@/theme/styles"
-import { useSafeAreaInsetsStyle } from "@/utils/useSafeAreaInsetsStyle"
-import { useRouter } from "expo-router"
-import { FC } from "react"
-import { ViewStyle } from "react-native"
+import React, { FC, useEffect } from "react"
+import { FlatList } from "react-native"
 
 export const PorductsListScreen: FC = function PorductsListScreen() {
-  const { themed, theme } = useAppTheme()
-
-  const $bottomContainerInsets = useSafeAreaInsetsStyle(["bottom"])
-  const router = useRouter()
-
+  const { data, isLoading, error, refetch } = useProducts()
+  const loadFavorites = useFavoritesStore((state) => state.loadFavorites)
+  useEffect(() => {
+    loadFavorites()
+  }, [])
   return (
-    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
-      <Button
-        tx="welcomeScreen:exciting"
-        onPress={() => router.push("/(tab)/home/product-details")}
+    <Screen preset="fixed" style={$styles.root}>
+      <Header titleTx="routes:home" />
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <React.Fragment key={item.id}>
+            <ProductCard Product={item} />
+          </React.Fragment>
+        )}
       />
-      <Text testID="welcome-heading" tx="welcomeScreen:readyForLaunch" preset="heading" />
-      <Text tx="welcomeScreen:exciting" preset="subheading" />
-      <Text tx="welcomeScreen:postscript" size="md" />
     </Screen>
   )
-}
-const $root: ViewStyle = {
-  flex: 1,
 }
