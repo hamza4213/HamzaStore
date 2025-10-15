@@ -29,7 +29,7 @@ export const ProductCard = (props: ProductCardProps) => {
   return (
     <Pressable
       style={{ marginBottom: spacing.lg }}
-      onPress={() => router.push("/(tab)/home/product-details")}
+      onPress={() => router.push(`/(tab)/home/product-details?id=${Product.id}`)}
     >
       <View
         style={[
