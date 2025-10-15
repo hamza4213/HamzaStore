@@ -1,6 +1,8 @@
 import { AutoImage } from "@/components/AutoImage"
 import { Button } from "@/components/Button"
+import { ErrorHandler } from "@/components/ErrorHandler"
 import { Header } from "@/components/Header"
+import { Loading } from "@/components/Loading"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { useProductDetail } from "@/services/api/hooks/useProductDetails"
@@ -28,6 +30,19 @@ export const ProductDetailsScreen: FC = function ProductDetailsScreen() {
     theme: { colors },
   } = useAppTheme()
   const { t } = useTranslation()
+  if (isLoading) {
+    return <Loading />
+  }
+  if (error) {
+    return (
+      <ErrorHandler
+        tx={"emptyStateComponent:generic.content"}
+        onRefresh={() => {
+          refetch()
+        }}
+      />
+    )
+  }
   return (
     <Screen preset="scroll" style={$styles.root}>
       <Header

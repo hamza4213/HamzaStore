@@ -1,3 +1,4 @@
+import { ErrorHandler } from "@/components/ErrorHandler"
 import { Header } from "@/components/Header"
 import { Loading } from "@/components/Loading"
 import { ProductCard } from "@/components/ProductCard"
@@ -16,6 +17,16 @@ export const PorductsListScreen: FC = function PorductsListScreen() {
   }, [])
   if (isLoading) {
     return <Loading />
+  }
+  if (error) {
+    return (
+      <ErrorHandler
+        tx={"emptyStateComponent:generic.content"}
+        onRefresh={() => {
+          refetch()
+        }}
+      />
+    )
   }
 
   return (
