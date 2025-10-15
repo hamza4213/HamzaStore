@@ -21,7 +21,7 @@ const en = {
     removedFromFav: "Removed from favorites!",
     addedToFav: "Added to favorites!",
     checkedOut: "Order placed!",
-    addedToCard: "Added to cart!",
+    addedToCart: "Added to cart!",
   },
   welcomeScreen: {
     postscript:

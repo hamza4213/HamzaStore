@@ -17,7 +17,7 @@ const ur = {
     removedFromFav: "پسندیدہ سے ہٹا دیا گیا!",
     addedToFav: "پسندیدہ میں شامل کر دیا گیا!",
     checkedOut: "آرڈر دے دیا گیا!",
-    addedToCard: "کارٹ میں شامل کر دیا گیا!",
+    addedToCart: "کارٹ میں شامل کر دیا گیا!",
   },
   productDetails: {
     addtoCart: "کارٹ میں شامل کریں",

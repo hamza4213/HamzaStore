@@ -12,7 +12,6 @@ import { useLocalSearchParams, useRouter } from "expo-router"
 import React, { FC, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { TouchableOpacity, View } from "react-native"
-import { Toast } from "toastify-react-native"
 
 export const ProductDetailsScreen: FC = function ProductDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
@@ -71,20 +70,8 @@ export const ProductDetailsScreen: FC = function ProductDetailsScreen() {
           {Product?.rating.count} {t("common:reviews")}
         </Text>
       </View>
-      <Button
-        tx="productDetails:addtoCart"
-        style={{ marginVertical: spacing.lg }}
-        onPress={() => {
-          Toast.success("Removed from favorites!")
-        }}
-      />
-      <Button
-        tx="productDetails:checkOut"
-        preset="reversed"
-        onPress={() => {
-          Toast.success("Removed from favorites!")
-        }}
-      />
+      <Button tx="productDetails:addtoCart" style={{ marginVertical: spacing.lg }} />
+      <Button tx="productDetails:checkOut" preset="reversed" />
     </Screen>
   )
 }
