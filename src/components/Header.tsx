@@ -1,3 +1,5 @@
+import { isRTL } from "@/i18n"
+import { translate } from "@/i18n/translate"
 import { ReactElement } from "react"
 import {
   StyleProp,
@@ -8,8 +10,6 @@ import {
   ViewStyle,
 } from "react-native"
 
-import { isRTL } from "@/i18n"
-import { translate } from "@/i18n/translate"
 import type { ThemedStyle } from "@/theme/types"
 import { useAppTheme } from "@/theme/context"
 import { $styles } from "@/theme/styles"
@@ -17,6 +17,7 @@ import { ExtendedEdge, useSafeAreaInsetsStyle } from "@/utils/useSafeAreaInsetsS
 
 import { IconTypes, PressableIcon } from "./Icon"
 import { Text, TextProps } from "./Text"
+import { useTranslation } from "react-i18next"
 
 export interface HeaderProps {
   /**
@@ -179,10 +180,10 @@ export function Header(props: HeaderProps) {
     titleStyle: $titleStyleOverride,
     containerStyle: $containerStyleOverride,
   } = props
-
+  const { t } = useTranslation()
   const $containerInsets = useSafeAreaInsetsStyle(safeAreaEdges)
 
-  const titleContent = titleTx ? translate(titleTx, titleTxOptions) : title
+  const titleContent = titleTx ? t(titleTx, titleTxOptions) : title
 
   return (
     <View style={[$container, $containerInsets, { backgroundColor }, $containerStyleOverride]}>
