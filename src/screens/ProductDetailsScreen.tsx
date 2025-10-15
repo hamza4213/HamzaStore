@@ -1,4 +1,5 @@
 import { AutoImage } from "@/components/AutoImage"
+import { Button } from "@/components/Button"
 import { Header } from "@/components/Header"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
@@ -28,7 +29,7 @@ export const ProductDetailsScreen: FC = function ProductDetailsScreen() {
   } = useAppTheme()
   const { t } = useTranslation()
   return (
-    <Screen preset="fixed" style={$styles.root}>
+    <Screen preset="scroll" style={$styles.root}>
       <Header
         titleTx="routes:productDetails"
         leftIcon="back"
@@ -69,6 +70,8 @@ export const ProductDetailsScreen: FC = function ProductDetailsScreen() {
           {Product?.rating.count} {t("common:reviews")}
         </Text>
       </View>
+      <Button tx="productDetails:addtoCart" style={{ marginVertical: spacing.lg }} />
+      <Button tx="productDetails:checkOut" preset="reversed" />
     </Screen>
   )
 }

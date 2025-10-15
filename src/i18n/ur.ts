@@ -15,6 +15,10 @@ const ur = {
     productsList: "مصنوعات کی فہرست",
     productDetails: "مصنوعات کی تفصیل",
   },
+  productDetails: {
+    addtoCart: "کارٹ میں شامل کریں",
+    checkOut: "ابھی چیک آؤٹ کریں",
+  },
   welcomeScreen: {
     postscript:
       "پسٹ — شاید آپ کی ایپ ایسی نہیں لگتی۔ (اگر آپ کے ڈیزائنر نے یہ اسکرینز دی ہیں تو فوراً شِپ کریں!)",

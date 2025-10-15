@@ -1,3 +1,7 @@
+import { useAppTheme } from "@/theme/context"
+import { $styles } from "@/theme/styles"
+import { ExtendedEdge, useSafeAreaInsetsStyle } from "@/utils/useSafeAreaInsetsStyle"
+import { useScrollToTop } from "@react-navigation/native"
 import { ReactNode, useRef, useState } from "react"
 import {
   KeyboardAvoidingView,
@@ -10,13 +14,8 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { useScrollToTop } from "@react-navigation/native"
 import { SystemBars, SystemBarsProps, SystemBarStyle } from "react-native-edge-to-edge"
-import { KeyboardAwareScrollView } from "react-native-keyboard-controller"
-
-import { useAppTheme } from "@/theme/context"
-import { $styles } from "@/theme/styles"
-import { ExtendedEdge, useSafeAreaInsetsStyle } from "@/utils/useSafeAreaInsetsStyle"
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 
 export const DEFAULT_BOTTOM_OFFSET = 50
 
