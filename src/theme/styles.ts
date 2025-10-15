@@ -1,5 +1,7 @@
 import { ViewStyle } from "react-native"
 
+import { spacing } from "./spacing"
+
 /* Use this file to define styles that are used in multiple places in your app. */
 export const $styles = {
   row: { flexDirection: "row" } as ViewStyle,
@@ -14,4 +16,14 @@ export const $styles = {
     justifyContent: "center",
     overflow: "hidden",
   } as ViewStyle,
+}
+export const $favoriteButton: ViewStyle = {
+  position: "absolute",
+  top: spacing.sm,
+  right: spacing.sm,
+  borderRadius: spacing.lg,
+  width: spacing.xxl,
+  height: spacing.xxl,
+  justifyContent: "center",
+  alignItems: "center",
 }

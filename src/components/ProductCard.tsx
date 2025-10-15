@@ -3,7 +3,7 @@ import { Product } from "@/services/api/hooks/useProducts"
 import { useFavoritesStore } from "@/services/store/useFavoritesStore"
 import { useAppTheme } from "@/theme/context"
 import { spacing } from "@/theme/spacing"
-import { $styles } from "@/theme/styles"
+import { $favoriteButton, $styles } from "@/theme/styles"
 import { useRouter } from "expo-router"
 import { Pressable, StyleProp, TouchableOpacity, View, ViewStyle } from "react-native"
 
@@ -52,12 +52,12 @@ export const ProductCard = (props: ProductCardProps) => {
         </View>
 
         <TouchableOpacity
-          // style={[
-          //   favoriteButton,
-          //   {
-          //     backgroundColor: favorite ? favoriteActive : favoriteInactive,
-          //   },
-          // ]}
+          style={[
+            $favoriteButton,
+            {
+              backgroundColor: favorite ? colors?.palette.neutral900 : colors?.background,
+            },
+          ]}
           onPress={() => toggleFavorite(Product.id)}
         >
           <Text>{favorite ? "♥" : "♡"}</Text>
