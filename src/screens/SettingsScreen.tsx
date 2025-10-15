@@ -33,7 +33,7 @@ export const SettingsScreen: FC = function SettingsScreen() {
       </View>
       <View style={[$styles.row, $styles.spaceBetween, { marginTop: spacing.xxl }]}>
         <Text tx="common:changeLanguage" />
-        <Switch value={i18n.language === "en"} onPress={toggleLanguage} />
+        <Switch value={language === "en"} onPress={toggleLanguage} />
       </View>
     </Screen>
   )
